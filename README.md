@@ -13,6 +13,6 @@
   // Seconds way to pass options
   nuxtPlyr: { option2: 'something2' },
 
-3) in a vue file, for exsample Random.vue, add component <result />
+3) in a vue file, for exsample Random.vue, add component <UcasePlayer />
 
 
