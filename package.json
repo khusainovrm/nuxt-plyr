@@ -1,0 +1,8 @@
+{
+    "name": "@ucase.io/nuxt-plyr",
+    "version": "0.0.2",
+    "description": "Ucase plyr",
+    "main": "module.js",
+    "license": "MIT",
+    "publishConfig": { "registry": "https://registry.npmjs.org/" }
+  }
