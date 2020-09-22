@@ -35,18 +35,21 @@
       }
     },
     computed: {
-      pluginOptions() {
-        return this._customPluginOtions || {}
-      },
       opts () {
         const options = this.options
         if (!this.options.hasOwnProperty('hideYouTubeDOMError')) {
           options.hideYouTubeDOMError = true
         }
         return options
+      },
+      pluginOptions(){
+        return this._customPluginOtions
       }
     },
     mounted () {
+      console.log('Props given in component: ', this.options)
+      console.log('Props given in PluginOtions: ', this.pluginOptions)
+      
       this.player = new Plyr(this.$refs.ucasePlayer, this.opts)
 
       this.emit.forEach(element => {
