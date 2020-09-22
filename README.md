@@ -6,7 +6,16 @@
 2) add in nuxt.config.js:
   modules: [
   // First way to pass options in {}
-    ['@khusainovrm/nuxt-plyr', { namespace: 'Ucase plyr', myOptions: 'It is working' }]
+    ['@khusainovrm/nuxt-plyr', { namespace: 'plyr', options: 42 }],
   ],
   // Seconds way to pass options
-  nuxtPlyr: { initialValue: 42}
+  nuxtPlyr: { option2: 'something2' },
+
+  3) in a vue file, for exsample Random.vue, add component <result />:
+    <template>
+        <div class="container">
+            <result />
+        </div>
+    </template>
+
+
