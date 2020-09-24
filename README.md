@@ -2,6 +2,8 @@
 
 * Ucase nuxt-plyr uses plyr by sampotts v3 for the players [plyr](https://github.com/sampotts/plyr)
 
+[![NPM](https://img.shields.io/npm/l/@khusainovrm/nuxt-plyr)](https://github.com/ucase-io/nuxt-plyr/blob/master/LICENSE)
+
 ## Setup
 
 ### 1- Install Ucase nuxt-plyr module
