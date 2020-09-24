@@ -1,8 +1,13 @@
 {
     "name": "@ucase.io/nuxt-plyr",
     "version": "0.0.1",
-    "description": "Ucase video player",
+    "description": "Ucase vidio player",
     "main": "lib/module.js",
     "license": "MIT",
-    "publishConfig": { "registry": "https://registry.npmjs.org/" }
-  }
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
+    },
+    "dependencies": {
+        "plyr": "^3.6.2"
+    }
+}

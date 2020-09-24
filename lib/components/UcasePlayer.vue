@@ -1,11 +1,6 @@
 <template>
-<div class="plyr__video-embed" id="player" ref="ucasePlayer">
-  <iframe
-    src="https://www.youtube.com/embed/bTqVqk7FSmY?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
-    allowfullscreen
-    allowtransparency
-    allow="autoplay"
-  ></iframe>
+<div>
+  <slot/>
 </div>
 </template>
 
@@ -47,11 +42,7 @@
       }
     },
     mounted () {
-      console.log('Props given in component: ', this.options)
-      console.log('Props given in PluginOtions: ', this.pluginOptions)
-      
-      this.player = new Plyr(this.$refs.ucasePlayer, this.opts)
-
+      this.player = new Plyr(this.$el.firstChild, this.opts)
       this.emit.forEach(element => {
         this.player.on(element, this.emitPlayerEvent)
       })

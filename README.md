@@ -18,12 +18,9 @@ npm install @khusainovrm/nuxt-plyr
 // nuxt.config.js
 
 export default {
-  css: ['plyr/dist/plyr.css'],
-  
   modules: [
     ['@khusainovrm/nuxt-plyr', { namespace: 'plyr', options: 42 }],
   ],
-
   nuxtPlyr: { option2: 'something2' },
 }
 ```
@@ -37,7 +34,16 @@ You have a successfully enabled UcasePlayer in your project. In a vue component 
 
 <template>
   <div>
-      <UcasePlayer />
+      <UcasePlayer>
+        <div class="plyr__video-embed">
+          <iframe
+            src="https://player.vimeo.com/video/76979871?loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media"
+            allowfullscreen
+            allowtransparency
+          >
+          </iframe>
+        </div>
+      </UcasePlayer>
   </div>
 </template>
 ```
