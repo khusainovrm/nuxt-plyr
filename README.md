@@ -4,7 +4,7 @@
 
 ## Setup
 
-### 1- Install apollo module
+### 1- Install Ucase nuxt-plyr module
 
 ```bash
 npm install @khusainovrm/nuxt-plyr
