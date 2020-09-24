@@ -1,18 +1,46 @@
-# nuxt-plyr
+# Ucase nuxt-plyr
 
-#how to install for testing
-1) npm i @khusainovrm/nuxt-plyr
+* Ucase nuxt-plyr uses plyr by sampotts v3 for the players [plyr](https://github.com/sampotts/plyr)
 
-2) add in nuxt.config.js:
+## Setup
 
+### 1- Install apollo module
+
+```bash
+npm install @khusainovrm/nuxt-plyr
+```
+
+### 2- Load `@khusainovrm/nuxt-plyr` module
+
+```js
+// nuxt.config.js
+
+export default {
   modules: [
-  // First way to pass options in {}
     ['@khusainovrm/nuxt-plyr', { namespace: 'plyr', options: 42 }],
   ],
 
-  // Seconds way to pass options
   nuxtPlyr: { option2: 'something2' },
+}
+```
 
-3) in a vue file, for exsample Random.vue, add component <UcasePlayer />
+## Usage
 
+You have a successfully enabled UcasePlayer in your project. In a vue component or page use tag UcasePlayer.
 
+```vue
+// ~/page/index.vue
+
+<template>
+  <div>
+      <UcasePlayer />
+  </div>
+</template>
+```
+## Options
+
+Options that can be passed in a UcasePlayer component:
+
+| Name    | Description             | Default / Fallback                 |
+| ------- | ----------------------- | ---------------------------------- |
+| `src `  | String url of a video   | String                             |
