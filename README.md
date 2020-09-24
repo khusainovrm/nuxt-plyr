@@ -18,6 +18,8 @@ npm install @khusainovrm/nuxt-plyr
 // nuxt.config.js
 
 export default {
+  css: ['plyr/dist/plyr.css'],
+  
   modules: [
     ['@khusainovrm/nuxt-plyr', { namespace: 'plyr', options: 42 }],
   ],
