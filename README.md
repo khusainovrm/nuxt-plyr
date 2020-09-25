@@ -1,56 +1,59 @@
-# Ucase nuxt-plyr
+# Ucase player
 
-* Ucase nuxt-plyr uses plyr by sampotts v3 for the players [plyr](https://github.com/sampotts/plyr)
+* Ucase nuxt player is a development of Ucase team [ucase-io](https://github.com/ucase-io)
 
 [![NPM](https://img.shields.io/npm/l/@khusainovrm/nuxt-plyr)](https://github.com/ucase-io/nuxt-plyr/blob/master/LICENSE)
 
 ## Setup
 
-### 1- Install Ucase nuxt-plyr module
+### 1- Install Ucase player module
 
 ```bash
-npm install @khusainovrm/nuxt-plyr
+npm install @khusainovrm/nuxt-player
+```
+or
+```bash
+yarn add @khusainovrm/nuxt-player
 ```
 
-### 2- Load `@khusainovrm/nuxt-plyr` module
+### 2- Load `@khusainovrm/nuxt-player` module
 
 ```js
 // nuxt.config.js
 
 export default {
   modules: [
-    ['@khusainovrm/nuxt-plyr', { namespace: 'plyr', options: 42 }],
+    ['@khusainovrm/nuxt-player', { namespace: 'UcasePlayer', defaultUrl: "someUrl" }],
   ],
-  nuxtPlyr: { option2: 'something2' },
+  UcasePlayer: { option2: 'something else' },
 }
 ```
 
 ## Usage
 
-You have a successfully enabled UcasePlayer in your project. In a vue component or page use tag UcasePlayer.
+You have a successfully enabled UcasePlayer in your project. In a Vue component or page use `<UcasePlayer />`.
 
 ```vue
 // ~/page/index.vue
 
 <template>
   <div>
-      <UcasePlayer>
-        <div class="plyr__video-embed">
-          <iframe
-            src="https://player.vimeo.com/video/76979871?loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media"
-            allowfullscreen
-            allowtransparency
-          >
-          </iframe>
-        </div>
-      </UcasePlayer>
+      <UcasePlayer src="yourLink" />
   </div>
 </template>
 ```
-## Options
+## Module options
+
+Options provided to module in nuxt.config.js:
+
+| Name           | Description             | Default / Required                 |
+| -------------- | ----------------------- | ---------------------------------- |
+| `defaultUrl `  | String url of a video   | String/ Not required               |
+
+## Component options
 
 Options that can be passed in a UcasePlayer component:
 
-| Name    | Description             | Default / Fallback                 |
-| ------- | ----------------------- | ---------------------------------- |
-| `src `  | String url of a video   | String                             |
+| Name    | Description             | Default / Fallback                         |
+| ------- | ----------------------- | ------------------------------------------ |
+| `src `  | String url of a video   | 'https://player.vimeo.com/video/311756540' |

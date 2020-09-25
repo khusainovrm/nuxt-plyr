@@ -1,66 +1,80 @@
 <template>
-<div>
-  <slot/>
-</div>
+  <div class="ucase-video-responsive">
+    <iframe
+      :src="url"
+      :width="width"
+      :height="height"
+      style="border: none"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+    ></iframe>
+  </div>
 </template>
 
 <script>
-  import Plyr from 'plyr'
   export default {
-    name: 'VuePlyr',
+    name: 'UcasePlayer',
+    data:()=>({
+      url:''
+    }),
     props: {
-      /** Options object for plyr config. **/
       options: {
         type: Object,
         required: false,
-        default () {
-          return {}
-        }
+        default:() => ({})
+        },
+      src: {
+        type: String,
+        require: false,
+        default: 'https://player.vimeo.com/video/311756540'
       },
-      /** Array of events to emit from the plyr object **/
-      emit: {
-        type: Array,
-        required: false,
-        default () { return [] }
-      }
+      width: {
+        type: String,
+        require: false,
+        default: '100%',
+      },
+      height: {
+        type: String,
+        require: false,
+        default: '100%',
+      },
     },
-    data () {
-      return {
-        player: {}
-      }
+    mounted(){
+      if (this._customPluginOtions.defaultUrl) {
+        if (this.src === 'https://player.vimeo.com/video/311756540') {
+          this.url = this._customPluginOtions.defaultUrl
+        } else {
+          this.url = this.src          
+        }
+      } else this.url = this.src
     },
     computed: {
-      opts () {
-        const options = this.options
-        if (!this.options.hasOwnProperty('hideYouTubeDOMError')) {
-          options.hideYouTubeDOMError = true
-        }
-        return options
-      },
       pluginOptions(){
         return this._customPluginOtions
-      }
+      },
     },
-    mounted () {
-      this.player = new Plyr(this.$el.firstChild, this.opts)
-      this.emit.forEach(element => {
-        this.player.on(element, this.emitPlayerEvent)
-      })
-    },
-    beforeDestroy () {
-      try {
-        this.player.destroy()
-      } catch (e) {
-        if (!(this.opts.hideYouTubeDOMError && e.message === 'The YouTube player is not attached to the DOM.')) {
-          // eslint-disable-next-line no-console
-          console.error(e)
-        }
-      }
-    },
-    methods: {
-      emitPlayerEvent (event) {
-        this.$emit(event.type, event)
+    watch: {
+      src() {
+        this.url = this.src 
       }
     }
   }
 </script>
+
+<style lang="scss">
+.ucase-video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+  width: 100%;
+
+  iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100% !important;
+    position: absolute;
+  }
+}
+</style>

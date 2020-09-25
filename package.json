@@ -6,8 +6,5 @@
     "license": "MIT",
     "publishConfig": {
         "registry": "https://registry.npmjs.org/"
-    },
-    "dependencies": {
-        "plyr": "^3.6.2"
     }
 }
